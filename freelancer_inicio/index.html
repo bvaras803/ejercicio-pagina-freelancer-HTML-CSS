@@ -1,0 +1,187 @@
+<!DOCTYPE html><!--Se puede agregar la etiqueta de comienzo con html:5-->
+<html lang="en"> <!--Esta etiqueta abre todo el codigo de la pagina y es necesario cerrarla-->
+
+    <head> <!--El head es para entregar informacion al navegador, titulo de la paginasi se necesita sacar informacion de otro sitio 
+        o las configuraciones del sitio,en que idioma esta hecho etc...-->
+
+        <meta charset="UTF-8"><!--Enconding para poder poner tildes o ñ-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--Informacion interna del servidor HTTP-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Esta configuracion es como se van a mostrar los elementos en la pagina-->
+        <title>Diseñador Freelancer</title><!--Este es el nombre de la pagina-->
+        <link rel="preload" href="css/Normalize.css" as="style"><!--para que funcione mejor siempre se cargara esto primero que todo-->
+        <link rel="stylesheet" href="css/Normalize.css"><!--siempre tiene que ser la libreria que se cargue primero, normalize se usa para normalizar o tratar de que en todo los navegadores se vea igual se abre la hoja se copia todo
+        en una hoja de estilo o sea quedaria la hoja de estilo y tambien la hoja de normalize-->
+        <link rel="preconnect" href="https://fonts.googleapis.com"><!--para que funcione mejor siempre se cargara todo antes-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet"><!--este link es de las fonts de google-->
+        <link rel="preload" href="css/styles.css" as="style"><!--en este link agregaremos un preload para que se cargue la hoja de estilos css primero asi logrando
+        un mejor performance y se especifica con as style, ademas se cargaron dos tipos de letras 400 y 700-->
+
+        <link href="css/styles.css" rel="stylesheet"> <!--La etique link sirve para cargar cosas en el head, ya que el html cuenta con dos elementos
+        el head y el body, el head es para entregarle informacion al navegador, por eso con el href estamos diciendo desde donde viene el archivo css osea agreando una ruta, 
+        mismo que se usa para agregar links con la etiqueta "a" que sirve para cargar la pagina css externa que creamos, ademas tiene que llevar un rel que le informa al navegador que relacion tiene lo que estamos
+        cargando en este caso se explica que estamos cargando el stylesheet-->
+
+    </head>
+    <body>
+
+        <header>
+            <h1>Brian Varas <span class="titulo">Freelancer</span></h1><!--El h1 siempre ira en el header, los h1 al h6 demuestran que es lo mas
+                importante-->
+                <!--La etiqueta span no sirve para nada, pero la usamos para darle un etiqueta a algo que posteriormente podemos modificar con css, en
+                este caso el elemento freelancer lo estamos haciendo mas pequeño gracias a las propiedades que le dimos en css a la etiqueta span-->
+        </header>
+                <div class="nav-bg"><!--se crea un div para que tome todo el contenido y se le agrega una clase de utilidad para que relleno toda
+                la barra en este caso con el color azul en el background-->
+                    <nav class="navegacion-principal contenedor"> <!--Este es la parte del navegador donde se le agregan diferentes links y con espacios se pueden
+                    agregar mas de una clase en la misma etiqueta, tambien la navegacion ira con display inline ya que por defecto viene asi, en cambio
+                el div viene por display block esto quiere decir que se iran acumulando bloques hacia abajo-->
+                        <a href="Nosotros.html">Inicio</a> <!--con la etiqueta a y el href que denominara de donde viene el link o la ruta se pueden agregar enlaces-->
+                        <a href="Nosotros.html">Sobre mi</a>
+                        <a href="Nosotros.html">Cliente</a>
+                        <a href="Nosotros.html">Contactos</a>
+                    </nav>    
+                </div>        
+                    
+   
+                <section class="hero">
+                    <div class="contenido-hero">
+                        <h2>Diseño y Desarrollo Web <span>Freelancer</span></h2>
+                        
+                        <p><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="88" height="88" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffc107" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="11" r="3" />
+                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                            </svg><!--Los svg son pequeñas imagenes que pueden copiar desde una pagina en internet llamada tablericons-->Santiago, Chile
+                            </p>
+
+                            
+
+                        <a class="boton" href="Nosotros.html">Contactar</a><!--El blank es para dar espacio y mo importa cuantos elementos tengas
+                        siempre vas a poder darle una clase a cualquier elemento HTML-->
+
+                    </div>
+                    
+                </section>
+    <main class="contenedor sombra">
+        <h2>Mis Servicios</h2>
+        
+        <div class="servicios">
+            <section class="servicio">
+                <h3>Diseño Web</h3>
+                <div class="iconos">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 21a9 9 0 1 1 0 -18a9 8 0 0 1 9 8a4.5 4 0 0 1 -4.5 4h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+                    <circle cx="7.5" cy="10.5" r=".5" fill="currentColor" />
+                    <circle cx="12" cy="7.5" r=".5" fill="currentColor" />
+                    <circle cx="16.5" cy="10.5" r=".5" fill="currentColor" />
+                    </svg>
+                </div>
+                <p>Duis ac nulla sit amet quam commodo rhoncus. Aliquam mattis sem sit amet finibus dictum. Duis eget tempor purus, in interdum tortor. Proin sed volutpat dolor. Duis ac nulla sit amet quam commodo rhoncus. Aliquam mattis sem sit amet finibus dictum. Duis eget tempor purus, in interdum tortor. Proin sed volutpat dolor.</p>
+            </section>
+         
+
+            
+                <section class="servicio">        
+                    <h3>Aplicaciones Web</h3>
+                        <div class="iconos">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-android" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <line x1="4" y1="10" x2="4" y2="16" />
+                                <line x1="20" y1="10" x2="20" y2="16" />
+                                <path d="M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1 10 0" />
+                                <line x1="8" y1="3" x2="9" y2="5" />
+                                <line x1="16" y1="3" x2="15" y2="5" />
+                                <line x1="9" y1="18" x2="9" y2="21" />
+                                <line x1="15" y1="18" x2="15" y2="21" />
+                            </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-apple" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M9 7c-3 0 -4 3 -4 5.5c0 3 2 7.5 4 7.5c1.088 -.046 1.679 -.5 3 -.5c1.312 0 1.5 .5 3 .5s4 -3 4 -5c-.028 -.01 -2.472 -.403 -2.5 -3c-.019 -2.17 2.416 -2.954 2.5 -3c-1.023 -1.492 -2.951 -1.963 -3.5 -2c-1.433 -.111 -2.83 1 -3.5 1c-.68 0 -1.9 -1 -3 -1z" />
+                                    <path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2" />
+                                </svg>
+                        </div>    
+                                <p>Duis ac nulla sit amet quam commodo rhoncus. Aliquam mattis sem sit amet finibus dictum. Duis eget tempor purus, in interdum tortor. Proin sed volutpat dolor. Duis ac nulla sit amet quam commodo rhoncus. Aliquam mattis sem sit amet finibus dictum. Duis eget tempor purus, in interdum tortor. Proin sed volutpat dolor.</p>
+                </section>
+            
+                
+                    <section class="servicio">        
+                        <h3>E-Commerce</h3>
+                            <div class="iconos">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-credit-card" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <rect x="3" y="5" width="18" height="14" rx="3" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                    <line x1="7" y1="15" x2="7.01" y2="15" />
+                                    <line x1="11" y1="15" x2="13" 1y2="15" />
+                                </svg>
+                            </div>
+                                <p>Duis ac nulla sit amet quam commodo rhoncus. Aliquam mattis sem sit amet finibus dictum. Duis eget tempor purus, in interdum tortor. Proin sed volutpat dolor. Duis ac nulla sit amet quam commodo rhoncus. Aliquam mattis sem sit amet finibus dictum. Duis eget tempor purus, in interdum tortor. Proin sed volutpat dolor.</p>
+                    </section>
+        </div>         
+        
+                         
+
+
+    
+
+        <section> 
+                <h2>Contacto</h2>
+
+            <form class="formulario"> <!--Etiqueta para formularios y dice que todo lo que esta adentro de esta etiqueta pertenece al formulario y si lo 
+            configuras de cierta forma todos estos datos se enviaran a un servidor para actualizar una base de datos o si se esta autenticando-->
+                
+                <fieldset><!--El fieldset es para los campos que llevara el formulario y tambien siguiendo puede llevar la etiqueta legend
+                el navegador le aplicara estilos por default al fieldset que es todo lo que rodea al formulario-->
+
+                    <legend>Contactame llenando todos los campos</legend><!--legend se usa para darle informacion al usuario o describir lo 
+                    que viene en el formulario-->
+                    
+                    <div class="contenedor-campos"> <!--se crea este div para agrupar y darle estilo a todos los campos del formulario-->
+                        <div class="campo"><!--La etiqueta div sirve para agrupar y siempre se pondra agrupar con el poner 
+                            si no se cumple la regla de que lleve un section o un article-->
+
+                            <label>Nombre</label><!--Indicacion para el usuario-->
+                            <input class="input-text" type="text" placeholder="Tu Nombre"><!--Como en otros lenguajes el input es para que el usuario agregue informacion,
+                            hay varios tipos de inputs en html como text, tel, email o checkbox que hara una casilal que cliquear etc..-->
+                            <!--La etiqueta placeholder sirve para poner informacion dentro de la casilla asi el usuario tendra un ejemplo de que
+                            escribir, esta info se borrara una vez que el usuario haya proporcionado informacion-->
+                        </div>
+                        <div class="campo"> <!--se crea otra clase que tambien para darle estilos con css-->
+                            <label>Telefono</label>
+                            <input class="input-text" type="tel" placeholder="Tu Telefono"><!--con tel se actualiza hasta en celular asi se puede teclear con la pantalla-->
+                        </div>
+
+                        <div class="campo"> 
+                            <label>Correo</label>
+                            <input class="input-text" type="email" placeholder="Tu Correo">
+                        </div>
+                        
+                        <div class="campo">
+                            <label>Mensaje</label>
+                            <textarea class="input-text"></textarea><!--la etiqueta textarea se usa para darle al usuario un espacio donde escribir, va a tener mas espacio
+                            que lo normal donde escribir-->
+                        </div>
+                    </div>
+
+                    <div class="alinear-derecha flex">
+                        <input class="boton w-sm-100" type="Submit" value="Enviar"><!--el input submit seguido del value nombre es para agregar un boton de enviar
+                        se reutiliza la clase boton anteriormente usada y no modificara el otro boton debido a que es una enlace y los enlaces mantienen
+                    sus propiar propiedades, en la clase boton se le agrega la utilidad que habiamos creado, esto quiere decir que el boton tambien
+                tomara la propiedad de width 100%-->
+                    </div> <!--contendor de los campos del formulario y deja afuera a los divs-->
+                </fieldset>
+                    
+            </form>
+            
+        </section>
+   
+    </main>  <!--Se corta el main para dejar la seccion del formulario dentro de la casilla que ya habiamos configuradon css, asi 
+    obtiene todas las propiedades como color sombra etc...-->
+    <footer class="footer">
+        <p>Todos los derechos reservados. Brian Varas Just enjoy the show!.</p>
+    </footer>
+
+    </body> 
+</html>

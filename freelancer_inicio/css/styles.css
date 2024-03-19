@@ -1,0 +1,417 @@
+/* GLOBALES */
+
+
+:root { /* Cuando un selector comienza con dos puntos se les conocera como pseudo selectores y son selectores que no existen en html, sin embargo
+    root sirve para guardar variables de css que se le conocen como custom properties y tienen una sintaxis difentes a la propiedad y valor y se
+    inician con doble guion y se finaliza con dos puntos y uno le pueda dar el nombre que quiera y la ventaja es que de necesitar un cambio en los
+    colores solo se necesita cambiar estas propiedades para que todo cambie, siempre y cuando le hayamos dado la propiedad a las clases*/
+    --blanco: #ffffff;
+    --amarillo: #ffc107;                      
+    --gris: #757575;
+    --azul: #0097a7;
+    --negro: #212121;
+} /*las hojas de estilo van en cascada por eso siempre seleccionara la ultima linea de codigo cancelara el primero y le dara prioridad al ultimo*/
+
+html { /* Para obtener un codigo css primero se selecciona el selector que se quiere modificar, tambien tiene que llevar una llave de apertura
+    y una llave de cierre, ya que todo lo que este adentro de estas llaves sera el codigo css que se le aplicara a lo seleccionado */
+    font-size: 62.5%; /*Con el porcentaje en 62.5% del total del codigo HTML, mas el font size del body en 16px se puede medir de mejor forma los rem*/
+    box-sizing: border-box; /*este codigo hace que al darle un height y padding a una imagen no se adhiera el padding que mide 20 o el margin que mide 10
+    al total de las dimensiones de tu imagenes o sea que si quisieras que tuviera 450px tendriamos que darle un height de 410 + 20 + 10 para que quede en 450,
+    en cambio con este codigo que al aplicarlo al html lo aplicara a todo el documento, logra que el height y el width sean diferentes al padding o al margin
+    asi no sumandoles*/
+    scroll-snap-type: y mandatory; /*y vertical arriba hacia abajo x horizontal izquierda derecha este scroll-snap-type: y o x + mandatory o proximity hace que la pagina
+    se mueve hacia sectores*/
+}
+
+.servicios,
+.navegacion-principal,
+.contenedor-campos { /*estas propiedades son necesarias para que se detenga el scroll snap*/
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*, *:before, *:after { /*La coma se usara para separar elementos que tienen las mismas propiedades pero se puede usar para agruparlos y asi ahorrar codigo*/
+    box-sizing: inherit; /*Paul Irish y su snippet para hace que tome todo el contenido de la caja en px y no se tenga que dividir con las configuraciones del navegador*/
+  }
+
+body {
+    font-size: 16px; /* estos son set de valores que se conocen como llave y valor. La llave en este caso se le conoce como propiedad y estas 
+    estan definidad por css, como color de las letras, negrita etc... se abre con dos puntos para despues agregarle un valor y este se debe
+    cerrar con punto y coma; */
+    background-image: linear-gradient(to top, #DFE9F3 0%, var(--blanco) 100%);  /*Esta propiedad para agregar degrades al background de la pag o todo el fondo de la pag
+    se logra con una propiedad del background-image: linear-gradient(hacia donde va la degrades, color + porcentaje desde donde comenzar, color + porcentaje de termino) */
+    font-family: 'Krub', sans-serif; /*En CSS se cierra con un punto y coma (;), ademas agrega otras fuentes en caso de que el usuario no tenga la 
+    fuente en su pc, las otras son en caso de emergencia, si la fuente se coloca en el body se aplicara en todos los elementos*/
+}
+
+.boton {
+    background-color: #0097a7;
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none; /*se le agrega un border none al input submit*/
+
+}
+@media (min-width: 768px) {
+    .boton {
+        width: auto; /*auto porque mas abajo de los 768px se reiniciara el valor o sea volvera al tamaño que configuramos arriba*/
+    }
+}
+.boton:hover {
+    cursor: pointer;
+} /*los inputs eliminan el hover cuando le das estilos a los botones*/
+
+.sombra {
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(71,71,71,0.73);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(71,71,71,0.73);
+    box-shadow: 0px 4px 5px 0px rgba(71,71,71,0.73);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem; /*con cssmatic.com se logran exportar sombras ademas se le agrega un color de fondo para que resalte un poco de padding para que el contenido
+    se aleje de las esquinas se suavizan las esquinas de la caja  y esta clase se le agrega al main ya que este contiene estos parrafos ademas se le agrega margin botton
+    a la img para que asi la caja tenga distancia del objeto superior logrando verse de forma independiente*/
+}
+
+/* TIPOGRAFIA */
+
+
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 2.8rem;
+}
+h3 {
+    font-size: 1.8rem;
+}
+h1, h2, h3 {
+    text-align: center; /*sirve para mover el texto izq der centrado, algunos elementos de css ya tienen sus propiar propiedades*/
+    
+    /*color: var(--negro); las variable de css se abren con var y parentesis */
+}
+ 
+.titulo {
+    text-align: center;
+    font-size: 2.5rem;
+   /*font-size: 2rem; los rems son medidas de gran tamaño para difentes tipos de pantallas y toma el tamaño del documento, existen convertidos
+    de px a rems, con el codigo de arriba un rem = 10 px, la ventaja es que los rems se adaptaran mejor en todas las pantallas
+    color: var(--negro); */
+}
+
+.contenedor {
+    max-width: 120rem; /*cuando quede un espacion o una barra lateral en la pagina se puede agregar la opcion de max-width que toma 1200 px si no toma el ancho
+    dek div y el div siempre tomara el 100% de la pantalla ya que tienen un display block, tambien esto se hace para que la transision entre tamaños se
+    mas fluida y no quede ese espacio entre la pagina y la pantalla o el scroll lateral que se creal al suceder esto*/
+    margin: 0 auto; /*el margen esta compuesto de 4 valores arriba derecha abajo izquierda como un relog si dejan dos vlaores igual los demas se copiaran arriba con abajo
+    y auto de derecha a izquierda*/
+}
+
+/*UTILIDADES*/ /*es importante ubicarla despues del boton por la especificidad de css, ya que estas propiedades modifican al boton*/
+.w-sm-100 { /*clase que se puede usar como utilidad para darle un witdh del 100% en este caso en particular al boton*/
+    width: 100%;
+}
+
+@media (min-width: 768px) { /*se utiliza un query para dar a entender que cuando pase de los 768 pixeles el boton se alinea a la derecha con la propiedad flex y justify content flex-end
+    si no tomara la propiedadad de la clase w-sm-100%(tamaño para pantallas penqueñas "sm" o "small") en caso de que disminuya de los 768 pixeles*/
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex; /*se le agrega este flex al boton para obtener la propiedad justify content*/
+    
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+/* NAVEGACION */
+
+
+.nav-bg {
+    background-color: var(--azul); /*clase de utilidad*/
+}
+.navegacion-principal {
+        display: flex;/*se utiliza esta propiedad ya que nos abrira nuevas herramientas como el justify content que hara que los enlaces se separen*/
+        /*flex-direction: column; con este codigo se podria hacer los elementos se creen en columnas o con reverse, ademas existe el justify content
+         de las columnas si se quiere centrar y esa propiedad se llama align-items: center;  */ 
+        flex-direction: column;
+        
+}
+@media (min-width: 768px) { /*Los mq adquieren todas las propiedas de la clase que se esta modificando po eso solo es necesario agregar la caracteristica que se le quiere dar poner px o una medida al mq es importante*/
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between; /*esto hace que los objetos se justifiquen horizontalmente con la propiedad space se separan los elementos esto es para horizontal
+        si se quiere en vertical seria item-align*/
+    }
+}
+.navegacion-principal a {
+    color: var(--blanco);
+    display: block;
+    text-align: center;
+    text-decoration: none; /*para sacarla la linea de abajo a los enlaces font son fuentes mientras que text modifica la fuente line-through hace que una linea cruce el texto
+    impeccionando el elemento se pueden ver todas las opciones*/
+    font-size: 2rem;
+    font-weight: 700; /* esto es el gruesor que cargamos de google font*/
+    padding: 1rem; /*si el padding tiene solo un valor es lo mismo que si lo tuvieramos 4 veces*/
+}
+.navegacion-principal a:hover { /* La pseudo clase hover sirve para que conde uno pase el mouse cambie de color*/
+    background-color: var(--amarillo);
+    color: var(--negro);
+}
+
+
+/*En esta clase pusimos una imagenes pero con la propiedad background-image: url(direcion desde donde se encuentra la imangen, se abre
+con dos puntos seguido .. y te permite acceder a la ubicacion de la imagen) ademas con el background-repeat: no repeat; hace que la imagenes
+no se repitan, debido a que por default siempre se repetiran, en este caso dejandolo asi no mas la imagen no alcanzaria a cubri el div, por lo tanto
+se usa la propiedad background-size: cover; la cual hace que la imagen cubra todo el bloque*/
+.hero {
+    background-image: url(../Img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative; /*siempre que se quiera agregar contenido dentro de una img la posicion de img padre tiene que ser por obligacion
+    "relative" y la del contenido hijo de esta clase de img tiene que ser "absolute" */
+    margin-bottom: 2rem; /*se usa para separacion con otros contenedores*/
+}
+
+.contenido-hero { /*hay que tener en consideracion el padding al insertar algo sobre la img*/ 
+    position: absolute;
+    background-color: rgba(0,0,0, .5);
+    background-color: rgb( 0 0 0 /70%); /*nueva forma de agregar transpariencia a img*/
+    width: 100%; /*hay otra forma de mover el contenido dentro de la img y seria con coordenadas top bottom left right y nosotros otogarlas los numeros de coordenadas que queramos*/
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column; /*estas 4 lineas de codigo son muy importantes ya que siempre que quieras alinear objetos de forma vertical
+    se usaran*/
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,   /*se modifican 3 elementos con la misma clase a esto se referia con forma modular*/
+.contenido-hero span,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+
+
+/* SERVICIOS */
+
+@media (min-width: 768px) { /*NUNCA OLVIDAR EN LOS QUERIES PONER PX DESPUES DEL NUMERO*/
+    .servicios { /*lo que permite el display: grid; asi como el flex es tener mas herramientas para poder configurar nuestros bloques, a difernecia del flex que solo permite
+        usar columns y rows en una dimension, el grip permite utilizar tanto columnas como filas y las ordena como uno vea necesario en diferentes dimensiones*/
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /*aqui se esta programando para que cree 3 columnas a 1 fraccion, es decir (33.3, 33.3, 33.3) o tambien (1fr,1fr,1fr)
+        grid-template-rows y las columns se puede simplificar la sintaxis con grid: 300px 300px(altura del row)/300px 300px (tamaño column)*/
+        column-gap: 2rem; /*crea separacion entre columnas*/
+    }
+}
+
+.servicio { /*esto es para aliear todo el contenido de la seccion se aplica en columna para que quede hacia abajo*/
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.servicio h3 {
+    color: var(--azul);
+    font-weight: 400;
+    
+}
+
+.servicio p {
+    line-height: 2rem; /*separacion de lineas en los parrafos*/
+    text-align: center; /*para darle forma al texto centrarlo*/
+}
+
+.servicio .iconos {
+    height: 15rem; /* se expresa una height y un width para que los iconos tengan porte y se puedan ver*/
+    width: 15rem;
+    background-color: var(--amarillo);
+    border-radius: 50%; /*si se tiene un cuadrado con border-radius: 50%; se logra que se transforme en un circulo*/
+    display: flex;                  /*flex aplica por default flex-direction: row; esto quiere decir que alineara a la izquierda los elementos
+    tambien nos permite usar justify-content: space-evenly; para separar los elementos y para alinear de forma horizontal align-items: center; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* CONTACTO */
+
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%); /*width con min lo que hace es que tome el valor mas pequeño si no el 100%, en este caso es decir que rellenara el contenedor con el menor valor 60rem
+    y si no se cumple esto rellenara el 100% y lo calcula entre los dos valores el restante es lo que rellenara en caso de que la pantalla sea menos que 600px
+    el formulario rellenara el 100% o el tamaño del formulario*/
+    margin: 0 auto; /*es la forma mas sencilla de centrar el formulario horizontalmente las propiedades se dan sin coma y se utliza cuando
+    el padre no tiene display flex por lo tanto no se tiene justify content*/
+    border-radius: 1rem;
+    padding: 2rem; 
+}
+
+.formulario fieldset {
+    border: none; /*se le elimina el borde al fieldset*/
+    
+}
+
+.formulario legend {
+    padding: 1rem;
+    font-size: 1.8rem;
+    text-align: center; /*para centrar el texto*/
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--amarillo);
+    
+}
+
+/*para organizar los contenedores lo mas recomendable es trabajar con grid en firefox developer edition. Al incorporar grid a nuestro diseño lo que hacemos es poder
+tener herramientas que nos van a permitir poder mover los contenedores de lugar solo aplicando una clase o como en este caso dentro un media query para que 
+los contenedores tengan otra organizacion de ser mas pequeña la pantalla, es necesario poner un display: grid; para poder darle esa propiedad al objeto y obtener
+todos las caracteristicas con las que se puede trabajar*/
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2 ,1fr); /*este codigo hace que se divida en dos las columnas ya que estamos diciendo que haga solos dos fracciones
+        es decir 50% 50%, ya que las carecteristicas se dan basandose en un 100%*/
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .campo:nth-child(3), /*en este caso se estan individualizando los contenedores con la clase necesaria + nth-child(posicion que se puede obtener del grid)
+    y se le agrega la propiedad de grid column ya que en este caso queremos mover un elemento que ya se encuentra en row es decir de arriba hacia abajo pero queremos
+    que abarca hasta la ultima columna y estas columnas serian de izquierda a derecha*/
+    .campo:nth-child(4) {
+        grid-column: 1/3;
+    }
+}
+
+
+
+.campo {
+    margin-bottom: 1rem; /*esto modificara los campos y les dara una separacion entre si*/
+}
+
+.campo label { /*los nombres de los campos*/
+    color: var(--blanco);
+    font-weight: 700;
+    margin-bottom: .5rem;
+    display: block; /*se le agrega un display block para que tome todo el espacio hacia a la izquierda asi quedando por sobre los inputs*/
+}
+
+/*.campo input[type="text"],
+.campo input[type="tel"] {  /* esta es una forma aqui se le dara estilo a los selectores de atributos como los son type href etc.. y esto se realiza al comienzo de la clase con
+    y solo tomara los que tengan el selector de atributo text []
+    background-color: red;
+}
+*/
+.input-text { /*la otra forma de agregarle estilos a los inputs es con una clase puede servir para cualquier selector de atributo independiente de su funcion
+    solo le aplicara los estilos*/
+   width: 100%;
+   border: none;
+   padding: 1.5rem;
+   border-radius: .5rem;
+}
+
+.campo textarea { /*clase para ampliar el cuadrado del textarea*/
+    height: 20rem;
+}
+/*.enviar .boton {
+    width: 100%;
+}
+*/
+.footer {
+    text-align: center;
+}
+
+
+
+/*Las clases en css se utlizan para dar estilos a diferentes elementos sin tener que repetir el codigo por cada una de las etiquetas
+existen diferentes formas de hacerlas pero las mas comun es agregar un punto y un nombre, despues se abren con llaves y se agregan los 
+parametros que modificaran el estilo, luego en la etiqueta se puede agregar la clase con la sintaxis class="nombre de la clase en la hoja css", 
+esto hara que la etiqueta lleve dicha clase se modifique de acuerdo a las configuraciones que se llevaron a cabo en la hoha de css, tambien 
+hay que tener en cuenta y es de suma importancia entender que existen varias formas de imnplementar clases en css, parte de poder hacerlo directamente
+en la etiqueta o con un punto y nombre, tambien se puede hacer mixtas como tenemos en el ejemplo de arriba .titulo span, esto quiere decir que 
+modificara el span con sus propias caracteristicas, de esta forma se convierte en una clase mas especifica que no cambiara todos los span solo 
+los span que lleven la clase titulo, es diferente a la otra clase titulo ya que esta modifica solo span, si no, no modificara nada, sera mas especifico
+porque buscara el span que este dentro de la clase titulo*/
+
+
+/*La especificidad en css es que css tomara como prioridad la etiqueta o elemento que sea mas especifico, ya que como es en cascada los elementos
+mas basicos quedaran en segundo plano no importa el lugar que ocupen en el codigo*/
+
+/* el margin creara un espacio desde comienza el elemento hacia afuera, mientras que el padding hace lo mimo pero hacia afuera*/
+
+/*BEM: bloques elementos y modificadores
+
+Utility first 
+
+Modulos*/
+
+
+/* Responsive Web Desing con Media Queries basicamente hacer tu sitio web adaptable a todas las pantallas que se usan hoy en dia, todo esto
+a traves de diseños que deberan adaptarse a las interacciones del usuario y la resolucion que utiliza y esto se logra con Media Queries y su sintaxis
+es: 
+
+estos tamaños son como una convension ya que siempre se utilizan, incluso algunos frameworks los utilizan y 
+se usa con arroba mas media se le agregan las propiedades que se van a modificar tambien se le agregan llave:
+
+@media (min-width: 480px) { tamaño para pantalla de celular
+    body {
+        background-color: cornflowerblue;
+    }
+}
+
+@media (min-width: 768px) { tamaño para pantalla de tablets
+    body {
+        background-color: cornflowerblue;
+    }
+}
+
+@media (min-width: 1140px) { tamaño para pantalla notebooks o desktop
+    body {
+        background-color: cornflowerblue;
+    }
+}
+
+@media (min-width: 1440px) { tamaño para pantalla notebooks o desktop tvs
+    body {
+        background-color: cornflowerblue;
+    }
+}
+
+para probar los tamaños de los diferentes dispositivos se puede descargar "responsively" el que tiene 4 pantallas al mismo tiempo donde ver tu pagina, ademas
+te puede mostrar los tamaños de los dispositivos con los que te puedes guiar para configurar tus queries
+
+
+GRID FLEXBOX Y FLOATS CUANDO USARLOS
+
+El FLEXBOX se utilizara para la alineacion o distribucion de los elementos que estaran dentro de los contenedores
+ej: una barra de nav
+
+El GRID se utilizara cuando necesitemos definir nuestros layouts de nuestro sitios webs es decir cuando se necesite 
+dividir una contenedor de elementos
+ej: nuestra seccion
+
+Los Floats valen nepe...
+
+NETLIFY es una pagina que te permite guardar tus proyectos y compartirlos como si estuvieran en un servidor con su propia url aportada por la pagina
+solo te crea una cuenta y se exportan los archivos, con esto te podra dar un link con el que ya se puede compartir y sirve tambien para crear tu 
+portafolio
+
+*/
+
+
+
+
